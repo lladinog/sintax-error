@@ -37,7 +37,7 @@ def register_chatbot_callbacks(app):
         redireccion = no_update
         
         # Preguntas sobre Finanzas
-        if any(palabra in user_input_lower for palabra in ["finanzas", "flujo", "margen", "roi", "cartera"]):
+        if any(palabra in user_input_lower for palabra in ["1","finanzas", "flujo", "margen", "roi", "cartera", "facturado"]):
             kpi_finanzas = finanzas_data.kpi_data
             flujo = finanzas_data.financial_data['Flujo_Caja'].iloc[-1]
             
@@ -54,7 +54,7 @@ def register_chatbot_callbacks(app):
             redireccion = "/finanzas"
         
         # Preguntas sobre Ventas
-        elif any(palabra in user_input_lower for palabra in ["ventas", "venta", "crecimiento", "clientes"]):
+        elif any(palabra in user_input_lower for palabra in ["2","ventas", "venta", "crecimiento", "clientes"]):
             kpi_ventas = ventas_data.get_kpi_data()
             top_clientes = ventas_data.get_top_clientes()
             
@@ -73,7 +73,7 @@ def register_chatbot_callbacks(app):
             redireccion = "/ventas"
         
         # Preguntas sobre Inventario
-        elif any(palabra in user_input_lower for palabra in ["inventario", "stock", "productos"]):
+        elif any(palabra in user_input_lower for palabra in ["3","inventario", "stock", "productos"]):
             kpi_inventario = inventario_data.kpi_data
             alertas = inventario_data.alertas_inventario
             
@@ -90,7 +90,7 @@ def register_chatbot_callbacks(app):
             redireccion = "/inventario"
         
         # Preguntas sobre Nómina
-        elif any(palabra in user_input_lower for palabra in ["nómina", "nomina", "empleados", "salarios"]):
+        elif any(palabra in user_input_lower for palabra in ["4","nómina", "nomina", "empleados", "salarios", "contrato"]):
             kpi_nomina = nomina_data.kpi_data
             dian_status = nomina_data.dian_data
             
@@ -108,7 +108,7 @@ def register_chatbot_callbacks(app):
             redireccion = "/nomina"
         
         # Preguntas sobre el Home/Resumen
-        elif any(palabra in user_input_lower for palabra in ["resumen", "general", "estado", "dashboard"]):
+        elif any(palabra in user_input_lower for palabra in ["5","resumen", "general", "estado", "dashboard"]):
             kpi_home = home_data.kpi_data
             alertas = home_data.alertas_data
             
@@ -127,10 +127,11 @@ def register_chatbot_callbacks(app):
         else:
             bot_response = dbc.Alert(
                 "🤖 Puedo ayudarte con información sobre:\n\n"
-                "• Finanzas: flujo de caja, márgenes, ROI\n"
-                "• Ventas: crecimiento, clientes, productos\n"
-                "• Inventario: niveles de stock, alertas\n"
-                "• Nómina: empleados, costos, estado DIAN\n\n"
+                "• 1. Finanzas: flujo de caja, márgenes, ROI\n"
+                "• 2. Ventas: crecimiento, clientes, productos\n"
+                "• 3. Inventario: niveles de stock, alertas\n"
+                "• 4. Nómina: empleados, costos, estado DIAN\n\n"
+                "• 5. Resumen general de la empresa\n\n"
                 "¿Sobre qué área necesitas información?",
                 color="light",
                 className="chat-message bot-message w-100"
