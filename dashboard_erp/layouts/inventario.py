@@ -44,7 +44,7 @@ def get_layout():
                                 color='Stock', orientation='h',
                                 title="Stock Actual vs Mínimo Requerido",
                                 labels={'Producto': 'Producto', 'Stock': 'Unidades'},
-                                template="plotly_dark")
+                                template="plotly_white")
                 )
             ], md=6),
             
@@ -58,7 +58,7 @@ def get_layout():
                             size='Stock',
                             color='Rotacion',
                             title="Rotación de Inventario (Tamaño = Stock)",
-                            template="plotly_dark"
+                            template="plotly_white"
                         )
                     )
                 ], md=6)

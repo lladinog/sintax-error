@@ -43,7 +43,7 @@ def get_layout():
                         y='Total_Nomina',
                         title="Costo de Nómina Últimos Meses",
                         labels={'Total_Nomina': 'Valor ($)', 'Mes': 'Mes'},
-                        template='plotly_dark'
+                        template='plotly_white'
                     )
                 )
             ], md=7),
@@ -54,7 +54,7 @@ def get_layout():
                     figure=go.Figure(data=[
                         go.Pie(labels=dian_data['Estado'], 
                               values=dian_data['Porcentaje'])
-                    ]).update_layout(title_text="Estado Envío Nómina Electrónica",template="plotly_dark" )
+                    ]).update_layout(title_text="Estado Envío Nómina Electrónica",template="plotly_white" )
                 ),
                 
                 html.Div([
@@ -75,7 +75,7 @@ def get_layout():
                     y='Valor',
                     title="Composición del Gasto en Nómina",
                     labels={'Concepto': 'Concepto', 'Valor': 'Valor ($)'},
-                    template='plotly_dark'
+                    template='plotly_white'
                 )
             )
 
