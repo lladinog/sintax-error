@@ -127,9 +127,9 @@ def register_chatbot_callbacks(app):
         else:
             bot_response = dbc.Alert(
                 "🤖 Puedo ayudarte con información sobre:\n\n"
-                "• 1. Finanzas: flujo de caja, márgenes, ROI\n"
-                "• 2. Ventas: crecimiento, clientes, productos\n"
-                "• 3. Inventario: niveles de stock, alertas\n"
+                "• 1. Finanzas: flujo de caja, márgenes, ROI\n\n"
+                "• 2. Ventas: crecimiento, clientes, productos\n\n"
+                "• 3. Inventario: niveles de stock, alertas\n\n"
                 "• 4. Nómina: empleados, costos, estado DIAN\n\n"
                 "• 5. Resumen general de la empresa\n\n"
                 "¿Sobre qué área necesitas información?",

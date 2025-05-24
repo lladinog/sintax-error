@@ -4,12 +4,12 @@ from callbacks.chatbot_callbacks import register_chatbot_callbacks
 
 VALID_USERS = {
     "admin": "1234",
-    "maria": "clave1",
+    "laura": "1234",
     "juan": "pass123"
 }
 
 def register_callbacks(app):
-    # Callback para login - Siempre redirige a home después de login
+    # Callback para login - redirige a home después de login correcto
     @app.callback(
         Output("session-store", "data"),
         Output("login-error", "children"),
@@ -20,27 +20,26 @@ def register_callbacks(app):
         prevent_initial_call=True
     )
     def check_login(n_clicks, username, password):
-        
-        # Verifica si el usuario está en la lista
         if username in VALID_USERS and password == VALID_USERS[username]:
-            # Autenticación correcta
+            # Login correcto -> guardamos sesión y redirigimos a home
             return {"logged_in": True, "username": username}, "", "/home"
         elif not username or not password:
             return no_update, "", no_update
-        # Credenciales inválidas
         return no_update, "Usuario o contraseña incorrectos.", no_update
 
-    # Callback de navegación
+    # Callback para mostrar página según ruta y sesión
     @app.callback(
         Output('page-content', 'children'),
         Input('url', 'pathname'),
-        State('session-store', 'data'),
-        prevent_initial_call=True
+        State('session-store', 'data')
+        # no prevent_initial_call para que se ejecute al cargar la app
     )
     def display_page(pathname, session_data):
         if not session_data or not session_data.get("logged_in"):
+            # No está logueado, mostrar login
             return login.login_layout
 
+        # Mostrar layout según la url
         if pathname == '/finanzas':
             return finanzas.get_layout()
         elif pathname == '/ventas':
@@ -49,30 +48,22 @@ def register_callbacks(app):
             return inventario.get_layout()
         elif pathname == '/nomina':
             return nomina.get_layout()
-        elif pathname == '/home':  # Nueva ruta para home
+        elif pathname == '/home':
             return home.get_layout()
         else:
-            return home.get_layout()  # Redirige a home por defecto
+            # Ruta no reconocida, mostrar home
+            return home.get_layout()
 
-    # Callback para logout
-    @app.callback(
-        Output("session-store", "clear_data"),
-        Input("logout-button", "n_clicks"),
-        prevent_initial_call=True
-    )
-    def logout(n):
-        return True
-    
-    register_chatbot_callbacks(app)
 
-    
+
+    # Mostrar u ocultar botón logout según ruta
     @app.callback(
         Output("logout-button", "style"),
         Input("url", "pathname")
     )
     def toggle_logout_visibility(pathname):
-        if pathname == "/login":
+        if pathname == "/login" or pathname == "/":
             return {"display": "none"}
         return {"display": "block"}
-    
-    
+
+    register_chatbot_callbacks(app)
