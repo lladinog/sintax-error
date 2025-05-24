@@ -9,6 +9,8 @@ from dotenv import load_dotenv
 from chatbot.llm import human_query_to_sql, build_answer
 from chatbot.database import query
 
+
+
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -21,6 +23,19 @@ class PostHumanQueryPayload(BaseModel):
 
 class PostHumanQueryResponse(BaseModel):
     result: list
+
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI(servers=[{"url": BACKEND_SERVER}])
+
+# Configuración CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # O puedes restringirlo a ["http://localhost:3000"] si tienes frontend ahí
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post(
     "/human_query",
@@ -46,3 +61,4 @@ async def human_query(payload: PostHumanQueryPayload):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
