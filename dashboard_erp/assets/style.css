@@ -95,6 +95,11 @@ body {
     font-weight: 600;
     box-shadow: 0 0 6px rgba(0, 191, 255, 0.05);
 }
+/* En assets/custom.css */
+.login-button-text {
+    color: #000 !important; /* texto negro */
+    font-weight: bold;
+}
 
 /* ===== CHATBOT ===== */
 .chatbot-container {
@@ -217,3 +222,49 @@ body {
     }
 }
 
+
+/* assets/custom.css */
+
+.login-container {
+    max-width: 400px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-top: 40px;
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #003366;
+}
+
+.login-input {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+}
+
+.login-button {
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #007bff !important;
+    color: white !important;
+    border-radius: 8px;
+}
+
+.login-error {
+    text-align: center;
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.chatbot-icon {
+    display: block;
+    width: 220px;
+    height: auto;
+    opacity: 0.85;
+}

@@ -91,7 +91,7 @@ dbc.Row([
                                     ),
                                     html.P(
                                         "Recuerda conversaciones simples, decisiones inteligentes <3",
-                                        className="text-muted mt-2 mb-0", style={"color": "#00bfff"}  # Texto más pequeño
+                                        className="mb-2", style={"color": "#00bfff"}  # Texto más pequeño
                                     )
                                 ],
                                 className="flex-grow-1"
