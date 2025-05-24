@@ -5,6 +5,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from db_connection import get_engine
 
+
 logger = logging.getLogger(__name__)
 engine = get_engine()  # Usamos el motor de conexión centralizado
 

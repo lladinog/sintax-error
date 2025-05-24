@@ -6,8 +6,8 @@ from pydantic import BaseModel
 from typing import Any
 from dotenv import load_dotenv
 
-from llm import human_query_to_sql, build_answer
-from database import query
+from chatbot.llm import human_query_to_sql, build_answer
+from chatbot.database import query
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)

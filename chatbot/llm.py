@@ -1,7 +1,7 @@
 import os
 import logging
 from typing import Any
-from database import get_schema
+from chatbot.database import get_schema
 import google.generativeai as gemini
 
 gemini.api_key = os.getenv("OPEN_AI_API_KEY")
