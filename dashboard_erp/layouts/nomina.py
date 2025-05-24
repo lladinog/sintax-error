@@ -75,7 +75,7 @@ def get_layout():
                     y='Valor',
                     title="Composición del Gasto en Nómina",
                     labels={'Concepto': 'Concepto', 'Valor': 'Valor ($)'},
-                    template='plotly_dark'
+                    template='plotly_white'
                 )
             )
 
