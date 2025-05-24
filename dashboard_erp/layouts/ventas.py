@@ -46,7 +46,7 @@ def get_layout():
                 dcc.Graph(
                     figure=px.bar(sales_data, x='Producto', y='Ventas', 
                                  color='Ventas', title="Top Productos por Ventas",
-                                 labels={'Producto': 'Producto', 'Ventas': 'Ventas ($)'},template="plotly_dark")
+                                 labels={'Producto': 'Producto', 'Ventas': 'Ventas ($)'},template="plotly_white")
                 )
             ], md=6),
             
@@ -55,7 +55,7 @@ def get_layout():
                 dcc.Graph(
                     figure=px.pie(sales_data, values='Clientes', names='Producto', 
                                  title="Distribución de Clientes por Producto",
-                                 hole=0.4,template="plotly_dark")
+                                 hole=0.4,template="plotly_white")
                 )
             ], md=6)
         ]),
@@ -71,7 +71,7 @@ def get_layout():
                     ]).update_layout(
                         barmode='group',
                         title="Comparativo Ventas Mes Actual vs Anterior",
-                        template="plotly_dark"  # <- Aquí es donde debe ir
+                        template="plotly_white"  # <- Aquí es donde debe ir
                     )
                 )
             ], md=8),
