@@ -6,12 +6,25 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
 # Cargar las variables de entorno desde el archivo .env
-load_dotenv()
+dotenv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '.env')
+
+# **DEBUG: Imprime la ruta que load_dotenv intentará cargar**
+print(f"DEBUG: Intentando cargar .env desde: {dotenv_path}")
+
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv(dotenv_path=dotenv_path)
 
 DB_HOST = os.getenv("DB_HOST")
 DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_NAME = os.getenv("DB_NAME")
+
+# *** AGREGA ESTAS LÍNEAS TEMPORALES PARA DEPURAR ***
+print(f"DEBUG: DB_HOST cargado: {DB_HOST}")
+print(f"DEBUG: DB_USER cargado: {DB_USER}")
+print(f"DEBUG: DB_PASSWORD cargado: {DB_PASSWORD}") # ¡Cuidado con mostrar contraseñas en producción!
+print(f"DEBUG: DB_NAME cargado: {DB_NAME}")
+# **************************************************
 
 # Configuración de la conexión a la base de datos
 def get_connection():
