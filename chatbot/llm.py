@@ -1,10 +1,10 @@
 import os
 import logging
 from typing import Any
-import openai
 from database import get_schema
+import google.generativeai as gemini
 
-openai.api_key = os.getenv("OPEN_AI_API_KEY")
+gemini.api_key = os.getenv("OPEN_AI_API_KEY")
 logger = logging.getLogger(__name__)
 
 async def human_query_to_sql(human_query: str) -> str:
@@ -22,8 +22,8 @@ async def human_query_to_sql(human_query: str) -> str:
     </schema>
     """
 
-    response = openai.chat.completions.create(
-        model="gpt-4o",
+    response = gemini.chat.completions.create(
+        model="gemini-2.0-flash",
         response_format={"type": "json_object"},
         messages=[
             {"role": "system", "content": system_message},
@@ -44,8 +44,8 @@ async def build_answer(result: list[dict[str, Any]], human_query: str) -> str | 
     </sql_response>
     """
 
-    response = openai.chat.completions.create(
-        model="gpt-4o",
+    response = gemini.chat.completions.create(
+        model="gemini-2.0-flash",
         messages=[
             {"role": "system", "content": system_message},
         ],

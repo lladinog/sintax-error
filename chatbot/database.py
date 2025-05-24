@@ -3,7 +3,7 @@ from typing import List, Dict
 from sqlalchemy import inspect, text
 from sqlalchemy.exc import SQLAlchemyError
 
-from material_complementario.db_connection import get_engine
+from db_connection import get_engine
 
 logger = logging.getLogger(__name__)
 engine = get_engine()  # Usamos el motor de conexión centralizado
