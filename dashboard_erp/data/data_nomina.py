@@ -24,7 +24,7 @@ dian_data = pd.DataFrame({
 
 # Datos de contratos a renovar
 contratos_data = pd.DataFrame({
-    'Nombre': ['Juan Pérez', 'María Gómez', 'Carlos Ruiz'],
+    'Nombre': ['Yulieth Restrepo Restrepo', 'Samuel Valencia Saldarriaga', 'Juan Gomez Roldan'],
     'Fecha_Renovacion': ['15/05/2023', '22/05/2023', '30/05/2023']
 })
 

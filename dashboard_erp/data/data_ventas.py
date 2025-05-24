@@ -40,8 +40,8 @@ def get_kpi_data():
 def get_date_range_defaults():
     """Retorna rangos de fechas por defecto para los filtros"""
     return {
-        "min_date": date(2025, 4, 1),
-        "max_date": date(2025, 4, 30),
+        "min_date": date(2019, 5, 1),
+        "max_date": date(2024, 4, 30),
         "start_date": date(2023, 4, 1),
         "end_date": date(2023, 4, 30)
     }

@@ -45,8 +45,8 @@ alertas_data = pd.DataFrame({
 # Datos para próximas acciones
 acciones_data = pd.DataFrame({
     'accion': [
-        "Renovar contrato de Juan Pérez (15/05)",
-        "Revisar stock de Producto C y E",
+        "Renovar contrato de Valentina Mora Henao (15/05)",
+        "Revisar stock de Bombillo y Bicicleta",
         "Seguimiento a facturas vencidas",
         "Corregir nómina rechazada por DIAN"
     ]

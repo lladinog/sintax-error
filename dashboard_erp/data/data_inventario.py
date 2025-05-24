@@ -11,7 +11,7 @@ kpi_data = pd.DataFrame({
 
 # Datos de inventario
 inventory_data = pd.DataFrame({
-    'Producto': ['Producto A', 'Producto B', 'Producto C', 'Producto D', 'Producto E'],
+    'Producto': ['Bombillo ', 'Televisor LG', 'Agenda tamaño carta', 'Computador lenovo 2021', 'Iphone 12'],
     'Stock': [120, 85, 45, 210, 65],
     'Minimo': [50, 40, 30, 100, 30],
     'Rotacion': [3.2, 2.8, 1.5, 4.1, 2.3]
@@ -19,7 +19,7 @@ inventory_data = pd.DataFrame({
 
 # Datos de alertas de inventario
 alertas_inventario = pd.DataFrame({
-    'Producto': ['Producto C', 'Producto E', 'Producto B'],
+    'Producto': ['Aceite de almendras', 'Martillo 2', 'Bicicleta'],
     'Stock_Actual': [45, 65, 85],
     'Stock_Minimo': [50, 70, 90],
     'Diferencia': [-5, -5, -5],
