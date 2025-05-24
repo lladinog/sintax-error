@@ -62,7 +62,7 @@ def get_layout():
                     figure=px.line(financial_data, x='Mes', y=['Ventas', 'Egresos', 'Flujo_Caja'],
                                  title="Historial Financiero Últimos Meses",
                                  labels={'value': 'Valor ($)', 'variable': 'Indicador'},
-                                 template="plotly_dark").update_layout(
+                                 template="plotly_white").update_layout(
                                      legend=dict(
                                          orientation="h",
                                          yanchor="bottom",
